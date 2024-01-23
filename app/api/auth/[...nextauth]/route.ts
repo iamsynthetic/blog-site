@@ -1,4 +1,6 @@
-import { authOptions } from "@/utils/authOptions";
+// import { authOptions } from "@/utils/authOptions";
+// import { authOptions } from "./options";
+import authOptions from "./options";
 import NextAuth from "next-auth";
 
 // import NextAuth, { AuthOptions } from "next-auth";
@@ -70,6 +72,8 @@ import NextAuth from "next-auth";
 //   //   signIn: "/login",
 //   // },
 // };
-const handler = NextAuth(authOptions);
+// const handler = NextAuth(authOptions);
 
-export { handler as GET, handler as POST };
+// export { handler as GET, handler as POST };
+
+export default NextAuth(authOptions);

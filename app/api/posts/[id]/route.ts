@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/utils/authOptions";
+// import { handler } from "../../auth/[...nextauth]/route";
+// import { handler } from '../../auth/[...nextauth]/route'
+// import { authOptions } from "@/utils/authOptions";
+import authOptions from "../../auth/[...nextauth]/options";
 export async function GET(
   req: Request,
   { params }: { params: { id: string } }

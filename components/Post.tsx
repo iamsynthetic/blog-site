@@ -5,7 +5,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { getServerSession } from "next-auth";
 // import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { authOptions } from "@/utils/authOptions";
+import authOptions from "@/utils/authOptions";
 
 interface PostProps {
   id: string;
