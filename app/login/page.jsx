@@ -1,6 +1,7 @@
 // "use client";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+// import { authOptions } from "../api/auth/[...nextauth]/route";
+import { authOptions } from "@/utils/authOptions";
 import { redirect } from "next/navigation";
 import LogIn from "@/components/LogIn";
 

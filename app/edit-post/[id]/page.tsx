@@ -2,7 +2,8 @@ import { TPost } from "@/app/types";
 import EditPostForm from "@/components/EditPostForm";
 import React from "react";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+// import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/utils/authOptions";
 import { redirect } from "next/navigation";
 
 const getPost = async (id: string): Promise<TPost | null> => {
@@ -29,7 +30,7 @@ async function EditPost({ params }: { params: { id: string } }) {
 
   const id = params.id;
   const post = await getPost(id);
-  return <>{post ? <EditPostForm post={post}/> : <div>invalid post</div>}</>;
+  return <>{post ? <EditPostForm post={post} /> : <div>invalid post</div>}</>;
 }
 
 export default EditPost;
