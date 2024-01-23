@@ -2,26 +2,426 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* 
+
+font combinations 
+Rubik + Roboto Mono
+Karla & Inconsolata
+Anton & Roboto
+Mulish & Space Mono
+*/
+
+.ultra {
+  font-family: var(--font-ultra);
+}
+.slabo {
+  font-family: var(--font-slabo);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.anton400 {
+  font-family: var(--font-anton400);
+}
+
+.robotomono200 {
+  font-family: var(--font-robotomono200);
+}
+.robotomono400 {
+  font-family: var(--font-robotomono400);
+}
+.robotomono600 {
+  font-family: var(--font-robotomono600);
+}
+
+.rubik400 {
+  font-family: var(--font-rubik400);
+}
+.rubik600 {
+  font-family: var(--font-rubik600);
+}
+.rubik900 {
+  font-family: var(--font-rubik900);
+}
+
+/* midnight: "#0D0D0D"
+dark: "#3B3C40"
+cream: "#F2D0C4"
+banana: '#E5F280'
+coolblue: '#DCE4F2' */
+
+:root {
+  --dark: rgb(59, 60, 64); /* #3B3C40 */
+  --midnight: rgb(13, 13, 13);
+  --midnighthover: rgb(53, 53, 53);
+  --cream: rgb(242, 208, 196);
+  --creamhover: rgb(224, 192, 180);
+  --banana: rgb(229, 242, 128);
+  --coolblue: rgb(220, 228, 242);
+  --coolbluehover: rgb(185, 196, 215);
+  --bluelink: rgb(94, 125, 178);
+  --bluelinkhover: rgb(39, 77, 141);
+  --darkred: rgb(166, 47, 3);
+  --hoverred: rgb(224, 63, 4);
+  --lightred: rgb(255, 72, 5);
+}
+
+.darkred {
+  color: rgb(166, 47, 3);
+}
+.hoverred {
+  color: rgb(224, 63, 4);
+}
+.darkcolor {
+  color: rgb(59, 60, 64);
+}
+.midnightcolor {
+  color: rgb(13, 13, 13);
+}
+.midnighthover {
+  color: rgb(53, 53, 53);
+}
+.creamcolor {
+  color: rgb(242, 208, 196);
+}
+.creamhover {
+  color: rgb(224, 192, 180);
+}
+.bananacolor {
+  color: rgb(229, 242, 128);
+}
+.coolbluecolor {
+  color: rgb(220, 228, 242);
+}
+.coolbluehover {
+  color: rgb(185, 196, 215);
+}
+.bluelink {
+  color: rgb(94, 125, 178);
+}
+.bluelinkhover {
+  color: rgb(65, 91, 135);
+}
+
+* {
+  min-width: 0;
+}
+
+h1 {
+  @apply text-2xl font-semibold;
+}
+
+.tags {
+  @apply px-4 py-1 rounded-md cursor-pointer;
+  background-color: var(--darkred);
+  /* color: var(--creamhover); */
+  color: white;
+}
+.tags:hover {
+  background-color: var(--hoverred);
+}
+
+.signinbtn {
+  @apply bg-slate-100;
+}
+
+.signinbtn:hover {
+  background-color: var(--banana);
+}
+
+.editbtn {
+  @apply px-4 py-1 rounded-md text-sm font-bold cursor-pointer;
+  color: var(--midnight);
+  background-color: var(--coolblue);
+}
+.editbtn:hover {
+  background-color: var(--coolbluehover);
+}
+
+.deletebtn {
+  @apply px-4 py-1 rounded-md text-sm font-bold cursor-pointer;
+  color: var(--darkred);
+}
+.deletebtn:hover {
+  @apply bg-red-800;
+}
+
+.btn {
+  @apply px-4 py-2 rounded-md font-semibold hover:scale-105 transition;
+  color: var(--midnighthover);
+  background-color: var(--cream);
+  cursor: pointer;
+}
+
+.addbtn {
+  @apply px-4 py-2 rounded-md bg-slate-200 w-20 cursor-pointer;
+}
+.addbtn:hover {
+  background-color: var(--coolbluehover);
+}
+
+.selectbtn {
+  @apply px-4 py-2 rounded-md bg-slate-200;
+}
+
+.primarybtn {
+  @apply px-4 py-2 bg-slate-800 rounded-md text-white;
+}
+
+input,
+textarea {
+  @apply px-4 py-2 border border-slate-300 rounded-md;
+}
+
+textarea {
+  @apply h-36;
+}
+
+.hyperlink {
+  @apply underline;
+  color: var(--bluelink);
+}
+
+.hyperlink:hover {
+  color: var(--coolbluehover);
+}
+
+.deletelink {
+  @apply cursor-pointer;
+}
+
+/**************** main nav *****************/
+
+/***** main nav - drop down ******/
+
+/* text links */
+.dropdown-text-link {
+  @apply underline bluelink text-sm;
+}
+.dropdown-text-link:hover {
+  @apply bluelinkhover;
+}
+
+/* signed in profile thumb */
+.signed-in-profile-thmb {
+  @apply cursor-pointer hover:scale-110 transition;
+}
+
+/* logout button */
+.signed-in-profile-thmb:hover {
+  @apply bluelink;
+}
+
+.logout-btn {
+  @apply px-4 py-2 rounded-md font-semibold hover:scale-105 transition;
+  color: var(--midnighthover);
+  background-color: var(--darkred);
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: var(--hoverred);
+}
+
+/**************** footer *****************/
+
+.emptydiv {
+  width: 0px;
+  height: 0px;
+}
+.thetooltip {
+  /* @apply rounded-lg px-30 py-10; */
+  @apply px-2 py-2 border-slate-700 rounded-md transition;
+  font-size: 10px;
+  border-style: solid;
+  border-width: thin;
+  background-color: white;
+  color: black;
+}
+
+/* text links */
+.footer-link {
+  /* border-bottom: 1px solid #000;
+  padding-bottom: 10px; */
+  /* text-underline-position: under; */
+  color: var(--dark);
+  font-size: 30px;
+}
+.footer-link:hover {
+  color: var(--hoverred);
+}
+.footer-evenalign {
+  line-height: 24px;
+}
+.footer-text-fontsize {
+  font-size: 1.3rem;
+}
+
+/**************** post page *****************/
+
+/***** post page layout ******/
+
+.group-1 {
+  height: 800px;
+}
+.group-2 {
+  height: 100px;
+}
+.main-column {
+  gap: 3rem;
+}
+
+.colA {
+  background-color: var(--coolbluehover);
+  /* max-height: 500px; */
+  /* max-width: 1200px;
+  max-height: 1000px; */
+  width: 500px;
+  height: 800px;
+}
+
+.colB {
+  background-color: var(--banana);
+  height: 400px;
+}
+
+.colA-subrow {
+  background-color: var(--creamhover);
+  margin-top: -60px;
+}
+
+.colB-subrow {
+  background-color: var(--bluelink);
+  margin-top: -60px;
+}
+
+/***** post page title ******/
+
+.post-title {
+  color: var(--dark);
+  font-size: 80px;
+  margin-top: 40px;
+}
+
+/***** post page body ******/
+
+.post-body {
+  @apply text-base;
+  color: var(--dark);
+  /* margin-top: 20px; */
+}
+
+/***** post page image ******/
+
+/* .img {
+  max-width: 100%;
+  height: inherit !important;
+} */
+
+.hero-img {
+  width: 800px;
+  max-height: 600px;
+  object-fit: cover;
+  object-position: center;
+}
+.tall-rect-img {
+  width: 400px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.wide-rect-img {
+  width: 500px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.almost-hero-img {
+  width: 800px;
+  height: auto;
+  object-fit: cover;
+}
+
+.post-image {
+  position: relative;
+  width: 100%;
+  height: 800px;
+  /* width: auto; */
+  /* min-height: 800px;
+  max-width: 500px; */
+  /* aspect-ratio: 2/1; */
+}
+
+/***** breakpoints **********/
+
+/*for mobile view*/
+@media screen and (min-width: 350px) {
+  .main-column {
+    gap: 1rem;
+  }
+  .colA {
+    width: 100%;
+    height: 400px;
+  }
+  .colB {
+    background-color: var(--banana);
+    height: 200px;
+  }
+  .colB-subrow {
+    background-color: var(--bluelink);
+    margin-top: 20px;
+  }
+  .colA-subrow {
+    background-color: var(--creamhover);
+    margin-top: 20px;
+  }
+  .colA-subrow-v2 {
+    background-color: var(--creamhover);
+    margin-top: 20px;
+  }
+  .post-image {
+    position: relative;
+    width: 100%;
+    height: 400px;
+  }
+  .mobile-rect-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* for tablet view */
+@media screen and (min-width: 768px) {
+  /* .colA {
+    height: 400px;
+  } */
+}
+
+/*for larger than tablet view*/
+@media screen and (min-width: 900px) {
+  .colA {
+    height: 600px;
+  }
+  .main-column {
+    gap: 1rem;
+  }
+  .colA-subrow {
+    background-color: var(--creamhover);
+    margin-top: -60px;
+  }
+  .colA-subrow-v2 {
+    background-color: var(--creamhover);
+    margin-top: 0px;
+  }
+
+  .colB-subrow {
+    background-color: var(--bluelink);
+    margin-top: -60px;
+  }
+}
+
+/* for laptop view */
+@media screen and (min-width: 1024px) {
+  .main-column {
+    gap: 2rem;
+  }
 }
